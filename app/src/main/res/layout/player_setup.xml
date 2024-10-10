@@ -26,8 +26,8 @@
         android:layout_height="wrap_content"
         android:text="@string/Label1"
         android:textColor="#FF0000"
-        app:layout_constraintBottom_toTopOf="@+id/editTextText"
-        app:layout_constraintStart_toStartOf="@+id/editTextText" />
+        app:layout_constraintBottom_toTopOf="@+id/player1Name"
+        app:layout_constraintStart_toStartOf="@+id/player1Name" />
 
     <TextView
         android:id="@+id/textView4"
@@ -35,11 +35,11 @@
         android:layout_height="wrap_content"
         android:text="@string/Label2"
         android:textColor="#0000FF"
-        app:layout_constraintBottom_toTopOf="@+id/editTextText2"
-        app:layout_constraintStart_toStartOf="@+id/editTextText2" />
+        app:layout_constraintBottom_toTopOf="@+id/player2Name"
+        app:layout_constraintStart_toStartOf="@+id/player2Name" />
 
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/player1Name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="144dp"
@@ -52,7 +52,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
-        android:id="@+id/editTextText2"
+        android:id="@+id/player2Name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
@@ -62,7 +62,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText" />
+        app:layout_constraintTop_toBottomOf="@+id/player1Name" />
 
     <Button
         android:id="@+id/button2"
@@ -70,9 +70,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="120dp"
         android:background="@drawable/red_button"
+        android:onClick="submitButtonClick"
         android:text="@string/submitButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText2" />
+        app:layout_constraintTop_toBottomOf="@+id/player2Name" />
 </androidx.constraintlayout.widget.ConstraintLayout>

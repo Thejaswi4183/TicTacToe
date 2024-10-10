@@ -8,4 +8,8 @@
     <string name="Label2">Player2</string>
     <string name="submitButton">Submit Names</string>
     <string name="NameHint">Enter Your Name</string>
+
+    <string name="playAgainButton">Play Again</string>
+    <string name="homeButton">Home</string>
+
 </resources>
