@@ -21,6 +21,9 @@ class TicTacToeBoard extends View {
     private final int OColor;
     private final int winningLineColor;
 
+
+    private boolean winningLine = false;
+
     private final Paint paint = new Paint();
 
 
@@ -75,22 +78,29 @@ class TicTacToeBoard extends View {
         float y=event.getY();
 
         int action = event.getAction();
-        if(action == MotionEvent.ACTION_DOWN){
-            int row= (int) Math.ceil(y/cellSize);
-            int col= (int) Math.ceil(x/cellSize);
+        if(action == MotionEvent.ACTION_DOWN) {
+            int row = (int) Math.ceil(y / cellSize);
+            int col = (int) Math.ceil(x / cellSize);
 
-            if(game.updateGameBoard(row,col)) {
-                invalidate();
+            if (!winningLine) {
 
-                //updating the players' turn
-                if(game.getPLayer() %  2 == 0){
-                    game.setPlayer(game.getPLayer()-1);
+                if (game.updateGameBoard(row, col)) {
+                    invalidate();
+
+                    if(game.winnerCheck()){
+                        winningLine = true;
+                        invalidate();
+                    }
+
+                    //updating the players' turn
+                    if (game.getPLayer() % 2 == 0) {
+                        game.setPlayer(game.getPLayer() - 1);
+                    } else {
+                        game.setPlayer(game.getPLayer() + 1);
+                    }
                 }
-                else{
-                    game.setPlayer(game.getPLayer()+1);
-                }
+                return true;
             }
-            return  true;
         }
         return false;
     }
@@ -155,5 +165,6 @@ class TicTacToeBoard extends View {
 
     public void resetGame(){
         game.resetGame();
+        winningLine=false;
     }
 }
