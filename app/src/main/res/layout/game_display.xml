@@ -65,7 +65,8 @@
         custom:OColor="#0000FF"
         custom:XColor="#FF0000"
         custom:boardColor="#000000"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        custom:winningLineColor="#00FF00"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

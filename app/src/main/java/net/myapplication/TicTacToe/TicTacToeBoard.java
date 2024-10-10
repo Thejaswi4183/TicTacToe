@@ -13,7 +13,6 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
-import java.nio.Buffer;
 
 class TicTacToeBoard extends View {
     private final int boardColor;
@@ -68,6 +67,12 @@ class TicTacToeBoard extends View {
 
         drawGameBoard(canvas);
         drawMarkers(canvas);
+
+
+        if(winningLine){
+            paint.setColor(winningLineColor);
+            drawWinningLine(canvas);
+        }
     }
 
 
@@ -95,7 +100,8 @@ class TicTacToeBoard extends View {
                     //updating the players' turn
                     if (game.getPLayer() % 2 == 0) {
                         game.setPlayer(game.getPLayer() - 1);
-                    } else {
+                    }
+                    else {
                         game.setPlayer(game.getPLayer() + 1);
                     }
                 }
@@ -154,6 +160,44 @@ class TicTacToeBoard extends View {
                          (float) ((row*cellSize + cellSize)-cellSize*0.2),
                           paint);
 
+    }
+
+    private void drawHorizontalLine(Canvas canvas, int row,int col){
+        canvas.drawLine(col,row*cellSize + ((float) cellSize /2),
+                cellSize*3, row*cellSize + ((float) cellSize /2),
+                paint);
+    }
+    private void drawVerticalLine(Canvas canvas, int row,int col){
+        canvas.drawLine(col * cellSize + ((float) cellSize /2) ,row,
+                col*cellSize + ((float) cellSize /2) ,cellSize*3,
+                paint);
+    }
+    private void drawDiagonalLInePos(Canvas canvas) {
+        canvas.drawLine(0,cellSize*3,
+                cellSize*3,0,
+                paint);
+    }
+    private void drawDiagonalLIneNeg(Canvas canvas) {
+        canvas.drawLine(0,0,
+                cellSize*3,cellSize*3,
+                paint);
+    }
+
+    public void drawWinningLine(Canvas canvas){
+        int row=game.getWinType()[0];
+        int col=game.getWinType()[1];
+
+        switch(game.getWinType()[2]){
+            case 1: drawHorizontalLine(canvas,row,col);
+                    break;
+            case 2: drawVerticalLine(canvas,row,col);
+                    break;
+            case 3:drawDiagonalLIneNeg(canvas);
+                   break;
+            case 4:drawDiagonalLInePos(canvas);
+                   break;
+
+        }
     }
 
     public void setUpGame(Button playAgain, Button home, TextView playerDisplay, String[] names){
