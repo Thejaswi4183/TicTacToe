@@ -196,7 +196,6 @@ class TicTacToeBoard extends View {
                    break;
             case 4:drawDiagonalLInePos(canvas);
                    break;
-
         }
     }
 

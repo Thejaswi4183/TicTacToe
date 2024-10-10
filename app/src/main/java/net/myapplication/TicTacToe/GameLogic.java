@@ -93,7 +93,7 @@ public class GameLogic {
             playAgainBTN.setVisibility(View.VISIBLE);
             homeBTN.setVisibility(View.VISIBLE);
             playerTurn.setText("DRAW");
-            return true;
+            return false;
         }
         else{
             return false;
