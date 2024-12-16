@@ -1,6 +1,10 @@
 *.iml
+misc.xml
+deploymentTargetDropDown.xml
+render.experimental.xml
 .gradle
 /local.properties
+.idea/
 /.idea/caches
 /.idea/libraries
 /.idea/modules.xml
