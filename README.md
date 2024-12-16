@@ -1,1 +1,0 @@
-TicTacToe Application for Android
