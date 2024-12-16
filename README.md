@@ -1,1 +1,1 @@
-TicTacToe Application for Android
+TicTacToe App build using Android Studio
